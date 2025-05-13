@@ -1,0 +1,53 @@
+#################### Task 1 ############################
+    # Request for reservoir dimensions and discretization parameters
+layers = int(input('How many layers are in the reseroir?'))
+rows = int(input('How many rows are in the reseroir?'))
+columns = int(input('How many columns are in the reseroir?'))
+
+
+#################### Task 2 ############################
+    # Request for the cut-off value
+cut_off = float(input("What is the cut-off value?"))
+#################### Task 3 ############################
+    # Initialize counters
+total_active = 0
+total_inactive = 0
+#################### Task 4 ############################
+    # Loop through all blocks (nested loop)
+for layer in range(layers): 
+     total_active_layer = 0
+     total_inactive_layer = 0
+     print(f'Layer {layer+1}')
+     for row in range(rows):  
+        for col in range(columns):  
+            permeability = float(input(f'What is the permeability of block (Layer {layer+1}, Row {row+1}, Column {col+1})'))
+            if permeability >= cut_off:
+                total_active_layer = total_active_layer + 1
+                total_active = total_active + 1
+            else:
+                total_inactive_layer = total_inactive_layer + 1
+                total_inactive = total_inactive + 1
+     print(f'The total number of active gridblocks in layer {layer+1}  is {total_active_layer}')
+     print(f'The total number of inactive gridblocks in  layer {layer+1} is {total_inactive_layer}')
+print(f'The total number of active gridblocks in the entire reservoir is {total_active}')
+         
+           
+            
+    # Initialize layer counter
+    
+    # two nested loops go here
+    
+
+    # Print layer count
+    
+
+#################### Task 5 ############################
+    # Print overall counts
+total_gridblock = layers*rows*columns
+percentage_active = (total_active/total_gridblock)*100
+# Print 'active'
+print(f'The total number of active gridblock in the rervoir is {total_active}')
+print(f'The percentage of active gridblock is {percentage_active}')
+
+# Print 'inactive'
+print(f'The total number of inactive gridblocks in the reservoir is {total_inactive}')
